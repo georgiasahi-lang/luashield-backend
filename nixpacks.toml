@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["nodejs_20", "lua5_4"]
+
+[phases.install]
+cmds = [
+  "npm install",
+  "git clone https://github.com/prometheus-lua/Prometheus prometheus"
+]
+
+[start]
+cmd = "node server.js"
