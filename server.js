@@ -14,10 +14,10 @@ const PROMETHEUS_DIR = path.join(__dirname, 'prometheus');
 if (!fs.existsSync(TEMP_DIR)) fs.mkdirSync(TEMP_DIR);
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
-  methods: ['POST', 'GET']
+  origin: '*',
+  methods: ['POST', 'GET', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
 }));
-
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
